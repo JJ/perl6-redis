@@ -26,7 +26,7 @@ if SpawnRedis() -> $proc {
     is-deeply $r.hset("hash", "field1", 1), True, "hset";
     is-deeply $r.hsetnx("hash", "field1", 1), False, "hsetnx";
     is-deeply $r.hget("hash", "field1"), "1", "hget";
-    is-deeply $r.hmset("hash", "key", "value", key2 => "value2"), True, "hmset";
+    ok $r.hmset("hash", "key", "value", key2 => "value2"), "hmset";
     is-deeply $r.hmget("hash", "key", "key2"), ["value", "value2"], "hmget";
 
     # hdel & hexists
